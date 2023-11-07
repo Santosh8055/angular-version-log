@@ -6,10 +6,84 @@ This README outlines the major features introduced in Angular from version 4 thr
 
 ### Key Features
 - **StrictNullChecks**: Enforces stricter type checking for null and undefined values.
+  ```
+  let myVar: number;
+  myVar = null; // Error: Type 'null' is not assignable to type 'number'.
+  ```
 - **Ahead-of-Time Compilation**: Using View Engine for faster rendering.
+  ```
+  # Command to compile an Angular app with AoT
+  ng build --prod --aot
+  ```
 - **Angular Universal**: Server-side rendering support for Angular apps.
+  ```
+  // Example server.ts file for Angular Universal
+  import 'zone.js/dist/zone-node';
+  import { ngExpressEngine } from '@nguniversal/express-engine';
+  import * as express from 'express';
+  import { AppServerModule } from './src/main.server';
+  
+  const app = express();
+  app.engine('html', ngExpressEngine({
+    bootstrap: AppServerModule,
+  }));
+  
+  // Serve static files
+  app.use(express.static('./dist/your-app-name'));
+  
+  // Serve your app
+  app.get('*', (req, res) => {
+    res.render('index', { req });
+  });
+  
+  app.listen(4000, () => {
+    console.log(`Angular Universal server is listening on port 4000`);
+  });
+  ```
 - **Angular Animations**: Separate package for more focused animation capabilities.
+  ```
+  import { trigger, state, style, animate, transition } from '@angular/animations';
+  @Component({
+    selector: 'my-app',
+    animations: [
+      trigger('openClose', [
+        state('open', style({
+          height: '200px',
+          opacity: 1,
+          backgroundColor: 'yellow'
+        })),
+        state('closed', style({
+          height: '100px',
+          opacity: 0.5,
+          backgroundColor: 'green'
+        })),
+        transition('open => closed', [
+          animate('1s')
+        ]),
+        transition('closed => open', [
+          animate('0.5s')
+        ]),
+      ]),
+    ],
+    template: `
+      <div [@openClose]="isOpen ? 'open' : 'closed'"></div>
+      <button (click)="isOpen = !isOpen">Toggle</button>
+    `,
+  })
+  export class AppComponent {
+    isOpen = true;
+  }
+
+  ```
 - **ngIf with else**: Conditional rendering with an `else` block in templates.
+  ```
+  <div *ngIf="user.loggedIn; else loggedOut">
+    Welcome back, {{ user.name }}!
+  </div>
+  <ng-template #loggedOut>
+    Please login.
+  </ng-template>
+  ```
 
 ## Angular 5 (2017)
 
