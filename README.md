@@ -1,6 +1,6 @@
-# Angular Features from Version 4 to 17
+# Angular Evolution: Features from Versions 4 to 17
 
-This document provides an overview of the notable features introduced in each version of Angular from 4 to the current version.
+This README outlines the major features introduced in Angular from version 4 through the upcoming version 17.
 
 ## Angular 4 (2017)
 
@@ -19,12 +19,6 @@ This document provides an overview of the notable features introduced in each ve
 - **Router Lifecycle Events**: More granular control over the routing lifecycle.
 - **HttpClient Module**: A more powerful HTTP client for backend communication.
 - UpdateOn blur/change/submit for forms validation.
-
-# Angular Evolution: Features from Versions 4 to 17
-
-This README outlines the major features introduced in Angular from version 4 through the upcoming version 17.
-
-
 
 
 ## Angular 6 (May 2018)
