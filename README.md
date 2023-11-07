@@ -6,17 +6,17 @@ This README outlines the major features introduced in Angular from version 4 thr
 
 ### Key Features
 - **StrictNullChecks**: Enforces stricter type checking for null and undefined values.
-  ```
+  ```typescript
   let myVar: number;
   myVar = null; // Error: Type 'null' is not assignable to type 'number'.
   ```
 - **Ahead-of-Time Compilation**: Using View Engine for faster rendering.
-  ```
+  ```shell
   # Command to compile an Angular app with AoT
   ng build --prod --aot
   ```
 - **Angular Universal**: Server-side rendering support for Angular apps.
-  ```
+  ```typescript
   // Example server.ts file for Angular Universal
   import 'zone.js/dist/zone-node';
   import { ngExpressEngine } from '@nguniversal/express-engine';
@@ -41,7 +41,7 @@ This README outlines the major features introduced in Angular from version 4 thr
   });
   ```
 - **Angular Animations**: Separate package for more focused animation capabilities.
-  ```
+  ```typescript
   import { trigger, state, style, animate, transition } from '@angular/animations';
   @Component({
     selector: 'my-app',
@@ -76,7 +76,7 @@ This README outlines the major features introduced in Angular from version 4 thr
 
   ```
 - **ngIf with else**: Conditional rendering with an `else` block in templates.
-  ```
+  ```html
   <div *ngIf="user.loggedIn; else loggedOut">
     Welcome back, {{ user.name }}!
   </div>
@@ -89,6 +89,10 @@ This README outlines the major features introduced in Angular from version 4 thr
 
 ### Key Features
 - **Build Optimizer**: Improved build optimization for smaller bundles.
+```shell
+  # Use the --build-optimizer flag with the Angular CLI to enable it
+  ng build --prod --build-optimizer
+```
 - **Forms Validation**: Enhanced forms validation with the `updateOn` option.
 - **Router Lifecycle Events**: More granular control over the routing lifecycle.
 - **HttpClient Module**: A more powerful HTTP client for backend communication.
